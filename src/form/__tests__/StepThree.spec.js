@@ -1,5 +1,7 @@
-import StepThree, { extractAvailableDishesByRestaurant, validator } from './StepThree';
-import { dishes } from '../../public/data/dishes.json';
+import React from 'react';
+import { render, cleanup } from 'react-testing-library';
+import StepThree, { extractAvailableDishesByRestaurant, validator } from '../StepThree';
+import { dishes } from '../../../public/data/dishes.json';
 
 describe('Selector tests', () => {
   it('Should extract all dishes of restaurant', () => {
@@ -148,6 +150,36 @@ describe('Validator tests', () => {
   });
 });
 
-describe('Component tests', () => {
-  it('Should blabla', () => {});
+describe('UI tests', () => {
+  afterEach(cleanup);
+
+  it('Should have dish name field', () => {
+    const { container } = render(<StepThree fieldData={dishes} />);
+    expect(container.querySelectorAll('input[name="dishes[0].quantity"]')).toHaveLength(1);
+  });
+
+  it('Should have dish quantity', () => {
+    const { container } = render(<StepThree fieldData={dishes} />);
+    expect(container.querySelectorAll('input[name="dishes[0].quantity"]')).toHaveLength(1);
+  });
+
+  it('Should have remove dish button', () => {
+    const { container } = render(<StepThree fieldData={dishes} />);
+    expect(container.querySelectorAll('button[name="remove-dish"]')).toHaveLength(1);
+  });
+
+  it('Should have add dish button', () => {
+    const { container } = render(<StepThree fieldData={dishes} />);
+    expect(container.querySelectorAll('button[name="add-dish"]')).toHaveLength(1);
+  });
+
+  it('Should have back button', () => {
+    const { container } = render(<StepThree fieldData={dishes} />);
+    expect(container.querySelectorAll('button[name="back"]')).toHaveLength(1);
+  });
+
+  it('Should have next button', () => {
+    const { container } = render(<StepThree fieldData={dishes} />);
+    expect(container.querySelectorAll('button[name="next"]')).toHaveLength(1);
+  });
 });

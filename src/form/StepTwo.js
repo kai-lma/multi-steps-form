@@ -40,10 +40,10 @@ const StepTwo = ({ onNext, onBack, fieldData, currentStep, allStepsData }) => {
               </TextField>
             </div>
             <div className={classes.buttonsArea}>
-              <Button variant="contained" onClick={onBack}>
+              <Button name="back" variant="contained" onClick={onBack}>
                 Back
               </Button>
-              <Button type="submit" variant="contained" color="primary">
+              <Button name="next" type="submit" variant="contained" color="primary">
                 Next
               </Button>
             </div>

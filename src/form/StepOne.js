@@ -55,7 +55,7 @@ const StepOne = ({ onNext, fieldData, currentStep, allStepsData }) => {
 
             <div className={classes.buttonsArea}>
               <div />
-              <Button type="submit" variant="contained" color="primary">
+              <Button name="next" type="submit" variant="contained" color="primary">
                 Next
               </Button>
             </div>

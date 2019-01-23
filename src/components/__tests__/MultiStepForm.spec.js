@@ -1,4 +1,4 @@
-import MultiStepForm, { reducer } from './MultiStepForm';
+import { reducer } from '../MultiStepForm';
 
 describe('Reducer tests', () => {
   it('Should increase current step', () => {
@@ -95,8 +95,4 @@ describe('Reducer tests', () => {
       currentStep: 2,
     });
   });
-});
-
-describe('Component tests', () => {
-  it('Should blabla', () => {});
 });

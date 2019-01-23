@@ -59,7 +59,7 @@ const StepThree = ({ onNext, onBack, fieldData, currentStep, allStepsData }) => 
                       helperText={pathOr(' ', [`dishes[${index}].quantity`])(errors)}
                     />
 
-                    <IconButton onClick={() => remove(index)}>
+                    <IconButton name="remove-dish" onClick={() => remove(index)}>
                       <DeleteIcon fontSize="small" />
                     </IconButton>
                   </div>
@@ -69,6 +69,7 @@ const StepThree = ({ onNext, onBack, fieldData, currentStep, allStepsData }) => 
                 </FormHelperText>
                 <Fab
                   className={classes.addButton}
+                  name="add-dish"
                   color="primary"
                   onClick={() => push({ name: '', quantity: 1 })}
                 >
@@ -78,10 +79,10 @@ const StepThree = ({ onNext, onBack, fieldData, currentStep, allStepsData }) => 
             )}
           </FieldArray>
           <div className={classes.buttonsArea}>
-            <Button variant="contained" onClick={onBack}>
+            <Button name="back" variant="contained" onClick={onBack}>
               Back
             </Button>
-            <Button type="submit" variant="contained" color="primary">
+            <Button name="next" type="submit" variant="contained" color="primary">
               Next
             </Button>
           </div>

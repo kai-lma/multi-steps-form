@@ -1,5 +1,7 @@
-import StepTwo, { extractRestaurantByMeal, validator } from './StepTwo';
-import { dishes } from '../../public/data/dishes.json';
+import React from 'react';
+import { render, cleanup } from 'react-testing-library';
+import StepTwo, { extractRestaurantByMeal, validator } from '../StepTwo';
+import { dishes } from '../../../public/data/dishes.json';
 
 describe('Selector tests', () => {
   it('Should extract all restaurants has breakfast', () => {
@@ -42,6 +44,21 @@ describe('Validator tests', () => {
   });
 });
 
-describe('Component tests', () => {
-  it('Should blabla', () => {});
+describe('UI tests', () => {
+  afterEach(cleanup);
+
+  it('Should have back button', () => {
+    const { container } = render(<StepTwo fieldData={dishes} />);
+    expect(container.querySelectorAll('button[name="back"]')).toHaveLength(1);
+  });
+
+  it('Should have next button', () => {
+    const { container } = render(<StepTwo fieldData={dishes} />);
+    expect(container.querySelectorAll('button[name="next"]')).toHaveLength(1);
+  });
+
+  it('Should have restaurant field', () => {
+    const { container } = render(<StepTwo fieldData={dishes} />);
+    expect(container.querySelectorAll('input[name="restaurant"]')).toHaveLength(1);
+  });
 });

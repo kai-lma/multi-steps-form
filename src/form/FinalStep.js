@@ -11,7 +11,7 @@ const FinalStep = ({ onBack, onSubmit, allStepsData }) => {
   const meal = pathOr('', [1, 'meal'])(allStepsData);
   const numberOfPeople = pathOr('', [1, 'numberOfPeople'])(allStepsData);
   const restaurant = pathOr('', [2, 'restaurant'])(allStepsData);
-  const dishes = pathOr('', [3, 'dishes'])(allStepsData);
+  const dishes = pathOr([], [3, 'dishes'])(allStepsData);
 
   return (
     <div>
@@ -62,10 +62,10 @@ const FinalStep = ({ onBack, onSubmit, allStepsData }) => {
         </Grid>
       </Grid>
       <div className={classes.buttonsArea}>
-        <Button variant="contained" onClick={onBack}>
+        <Button name="back" variant="contained" onClick={onBack}>
           Back
         </Button>
-        <Button variant="contained" color="secondary" onClick={onSubmit}>
+        <Button name="submit" variant="contained" color="secondary" onClick={onSubmit}>
           Submit
         </Button>
       </div>

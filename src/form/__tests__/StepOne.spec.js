@@ -1,5 +1,7 @@
-import StepOne, { extractAvailableMeals, validator } from './StepOne';
-import { dishes } from '../../public/data/dishes.json';
+import React from 'react';
+import { render, cleanup } from 'react-testing-library';
+import StepOne, { extractAvailableMeals, validator } from '../StepOne';
+import { dishes } from '../../../public/data/dishes.json';
 
 describe('Selector tests', () => {
   it('Should extract all meals', () => {
@@ -36,6 +38,21 @@ describe('Validator tests', () => {
   });
 });
 
-describe('Component tests', () => {
-  it('Should blabla', () => {});
+describe('UI tests', () => {
+  afterEach(cleanup);
+
+  it('Should have next button', () => {
+    const { container } = render(<StepOne fieldData={dishes} />);
+    expect(container.querySelectorAll('button[name="next"]')).toHaveLength(1);
+  });
+
+  it('Should have meal field', () => {
+    const { container } = render(<StepOne fieldData={dishes} />);
+    expect(container.querySelectorAll('input[name="meal"]')).toHaveLength(1);
+  });
+
+  it('Should have numberOfPeople field', () => {
+    const { container } = render(<StepOne fieldData={dishes} />);
+    expect(container.querySelectorAll('input[name="numberOfPeople"]')).toHaveLength(1);
+  });
 });
