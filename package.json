@@ -2,12 +2,14 @@
   "name": "multi-steps-form",
   "version": "0.1.0",
   "private": false,
+  "homepage": "http://kai-lma.github.io/multi-steps-form/",
   "dependencies": {
     "@material-ui/core": "^3.9.0",
     "@material-ui/icons": "^3.0.2",
     "@material-ui/styles": "^3.0.0-alpha.8",
     "axios": "^0.18.0",
     "formik": "^1.4.2",
+    "gh-pages": "^2.0.1",
     "prop-types": "^15.6.2",
     "ramda": "^0.26.1",
     "react": "16.8.0-alpha.1",
@@ -15,6 +17,8 @@
     "react-scripts": "2.1.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
