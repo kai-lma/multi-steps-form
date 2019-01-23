@@ -17,7 +17,7 @@ const App = () => {
 
   // Assume dishes data is from remote server
   const fetchFormData = async () => {
-    const { data = {} } = await axios.get('/data/dishes.json');
+    const { data = {} } = await axios.get('data/dishes.json');
     const { dishes } = data;
     setFieldData(dishes);
   };
